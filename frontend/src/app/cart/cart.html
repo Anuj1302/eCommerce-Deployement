@@ -1,0 +1,24 @@
+<div *ngIf="cart$ | async as cart" class="cart-container">
+
+  <h2>Your Shopping Bag</h2>
+
+  <div class="cart-item" *ngFor="let item of cart">
+
+    <div class="item-info">
+      <p class="name">{{ item.product.name }}</p>
+      <p class="price">₹ {{ item.product.price }}</p>
+    </div>
+
+    <div class="qty-controls">
+      <button (click)="decreaseQty(item.product.productId)">−</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increaseQty(item.product.productId)">+</button>
+    </div>
+
+    <div class="item-total">
+      ₹ {{ item.product.price * item.quantity }}
+    </div>
+
+  </div>
+
+</div>

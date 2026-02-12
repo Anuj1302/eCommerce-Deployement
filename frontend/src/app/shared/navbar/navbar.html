@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="logo">🛒 MyStore</div>
+  <div class="search-box">
+    <input type="text" placeholder="Search product..." [formControl]="searchControl" />
+
+    <ul *ngIf="results.length">
+      <li *ngFor="let product of results" (click)="goToProduct(product.productId)">
+        {{ product.name }}
+      </li>
+    </ul>
+  </div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/">Home</a></li>
+    <li class="dropdown">
+      <span>Categories ▾</span>
+
+      <ul class="dropdown-menu">
+        <li *ngFor="let category of categories$ | async" (click)="goToCategory(category.id)">
+          {{ category.name }}
+        </li>
+
+      </ul>
+    </li>
+    <li><a routerLink="/cart">Cart</a></li>
+    <li *ngIf = "!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
+    <button *ngIf = "authService.isLoggedIn()" (click)="logout()" class="logout-btn">
+      Logout
+    </button>
+
+  </ul>
+</nav>

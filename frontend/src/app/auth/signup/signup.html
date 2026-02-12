@@ -1,0 +1,27 @@
+<form [formGroup]="signupForm">
+
+    <!-- STEP 1 -->
+    <div *ngIf="step === 1">
+
+        <input type="text" placeholder="First Name" formControlName="firstName">
+        <input type="text" placeholder="Last Name" formControlName="lastName">
+        <label>Date of Birth</label>
+        <input type="date" formControlName="dob">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input type="text" placeholder="Phone Number" formControlName="phone">
+
+        <button type="button" (click)="next()">Next</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div *ngIf="step === 2">
+
+        <input type="text" placeholder="Username" formControlName="username">
+        <input type="password" placeholder="Password" formControlName="password">
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+
+        <button type="button" (click)="back()">Back</button>
+        <button type="button" (click)="signup()">Signup</button>
+    </div>
+
+</form>

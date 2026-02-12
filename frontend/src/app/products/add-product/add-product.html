@@ -1,0 +1,50 @@
+<h2>Add Product</h2>
+
+<form [formGroup] = "productForm" (ngSubmit) = "onSubmit()">
+    <label>Product Name</label>
+    <input type="text" formControlName="name"/> 
+    <small *ngIf = "productForm.get('name')?.touched && productForm.get('name')?.invalid"> Name is required </small>
+
+    <label>Description</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Brand</label>
+  <input type="text" formControlName="brand" />
+
+  <label>Price</label>
+  <input type="number" formControlName="price" />
+
+  <label>Category</label>
+  <select formControlName ="category">
+    <option value="" disabled selected>Select Category</option>
+    <option *ngFor = "let c of categories$ | async" [value] ="c.id">{{c.name}}</option>
+  </select>
+
+  <label>Release Date</label>
+  <input type="date" formControlName="releaseDate" />
+
+  <label>
+    <input type="checkbox" formControlName="isAvailable" />
+    Available
+  </label>
+
+  <label>Quantity</label>
+  <input type="number" formControlName="quantity" />
+
+  <label>Product Image</label>
+  <input type="file" accept=".jpg,.jpeg,.png" (change) ="onFileSelected($event)" #fileInput/>
+  <img *ngIf="imagePreviewUrl"
+     [src]="imagePreviewUrl"
+     width="100" />
+     <button type="button"
+        *ngIf="imagePreviewUrl"
+        (click)="removeImage(fileInput)"
+        >
+  Remove Image
+</button>
+
+  <button class="save-Product" type="submit" [disabled]="productForm.invalid">
+    {{isEditMode? 'Update Product' : 'Save Product'}}
+  </button>
+  <button class="delete-btn" type="button" (click)="deleteProduct()" *ngIf = "isEditMode">Delete</button>
+</form>
