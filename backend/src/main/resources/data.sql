@@ -28,7 +28,7 @@ INSERT INTO public.categories (id,"name") VALUES
 	 (4,'Wearables'),
 	 (5,'Electronics');
 
-     DELETE FROM public.products;
+     DELETE FROM public.product;
 INSERT INTO public.product (brand,description,img,is_available,"name",price,quantity,release_date,image_name,image_data,image_type,category) VALUES
 	 ('Apple','Latest Apple smartphone',NULL,true,'iPhone 15',79999.00,10,'2024-09-10 05:30:00',NULL,NULL,NULL,'2'),
 	 ('Motorola','Less Budget with Bad Camera',NULL,true,'Motorola',12000.00,80,'2026-01-04 05:30:00','Samsung-Mobile-Phone-Free-PNG-Image.png',16690,'image/png','1'),
