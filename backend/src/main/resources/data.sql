@@ -31,11 +31,11 @@ INSERT INTO public.categories (id,"name") VALUES
      DELETE FROM public.product;
 INSERT INTO public.product (brand,description,img,is_available,"name",price,quantity,release_date,image_name,image_data,image_type,category) VALUES
 	 ('Apple','Latest Apple smartphone',NULL,true,'iPhone 15',79999.00,10,'2024-09-10 05:30:00',NULL,NULL,NULL,'2'),
-	 ('Motorola','Less Budget with Bad Camera',NULL,true,'Motorola',12000.00,80,'2026-01-04 05:30:00','Samsung-Mobile-Phone-Free-PNG-Image.png',16690,'image/png','1'),
-	 ('Apple','Smooth with good Features',NULL,true,'Macbook',89999.00,2,'2026-01-01 05:30:00','OIP.jpg',16836,'image/jpeg','2'),
-	 ('SAMSUNG','GDF',NULL,true,'SAMSUNG',22222.00,4,NULL,'haikyu_wallp.jpg',16837,'image/jpeg','5'),
+	 ('Motorola','Less Budget with Bad Camera',NULL,true,'Motorola',12000.00,80,'2026-01-04 05:30:00','Samsung-Mobile-Phone-Free-PNG-Image.png',NULL,'image/png','1'),
+	 ('Apple','Smooth with good Features',NULL,true,'Macbook',89999.00,2,'2026-01-01 05:30:00','OIP.jpg',NULL,'image/jpeg','2'),
+	 ('SAMSUNG','GDF',NULL,true,'SAMSUNG',22222.00,4,NULL,'haikyu_wallp.jpg',NULL,'image/jpeg','5'),
 	 ('Sony','Noise cancelling headphones',NULL,false,'Sony Headphones',2499.00,0,'2023-11-05 05:30:00',NULL,NULL,NULL,'4'),
-	 ('Parle','G for Genius',NULL,true,'PARLE-G',5.00,53,NULL,'1588951001-parle-g-gold-biscuits.jpg',16839,'image/jpeg','3');
+	 ('Parle','G for Genius',NULL,true,'PARLE-G',5.00,53,NULL,'1588951001-parle-g-gold-biscuits.jpg',NULL,'image/jpeg','3');
 
      UPDATE public.product set image_data =  null where image_data is NOT null;
 
