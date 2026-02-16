@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, tap } from "rxjs";
+import { environment } from "../../../environments/environment.prod";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
 
   login(data: any) {
     return this.http.post<any>(
-      `${this.api}/login`,
+      `${environment.apiUrl}/auth/login`,
       data,
       { withCredentials: true }   // ⭐ REQUIRED
     ).pipe(
@@ -23,7 +24,7 @@ export class AuthService {
   }
 
   signup(data: any) {
-    return this.http.post(`${this.api}/register`, data);
+    return this.http.post(`${environment.apiUrl}/auth/register`, data);
   }
 
   isLoggedIn() {
@@ -46,14 +47,14 @@ export class AuthService {
   }
 
   getProfile(): Observable<any> {
-    return this.http.get(`${this.api}/profile`);
+    return this.http.get(`${environment.apiUrl}/auth/profile`);
   }
 
   // refreshToken() {
   //   // const refreshToken = sessionStorage.getItem('refreshToken');
   //   // console.log("refreshToken ", refreshToken);
 
-  //   return this.http.post<any>(`${this.api}/refresh`,
+  //   return this.http.post<any>(`${environment.apiUrl}/refresh`,
   //      {},
   //      {withCredentials: true}).pipe(
   //     tap(res => {
@@ -70,7 +71,7 @@ export class AuthService {
 
   refreshToken() {
     return this.http.post<any>(
-      'http://localhost:8080/auth/refresh',
+      `${environment.apiUrl}/auth/refresh`,
       {},
       { withCredentials: true }
     ).pipe(

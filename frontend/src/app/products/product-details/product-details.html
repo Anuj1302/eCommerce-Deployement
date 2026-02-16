@@ -1,7 +1,7 @@
 <div class="product-details" *ngIf = "product$ | async as product">
 
   <img
-  [src]="'http://localhost:8080/product/' + product.productId + '/image'"
+  [src]="'https://ecommerce-deployement.onrender.com/product/' + product.productId + '/image'"
   [alt]="product.name"
 />
 
